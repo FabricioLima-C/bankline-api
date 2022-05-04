@@ -22,16 +22,22 @@ public class Movimentacao {
 	private String descricao;
 	private Double valor;
 	
+	@Column(name = "id_conta")
+	private Integer idConta;
+	
 	@Enumerated(EnumType.STRING)
 	private MovimentacaoTipo movimentacaoTipo;
 
 	public Movimentacao() {
 	}
 
-	public Movimentacao(LocalDateTime dataHora, String descricao, Double valor, MovimentacaoTipo movimentacaoTipo) {
+	public Movimentacao(LocalDateTime dataHora, String descricao, Double valor, Integer idConta,
+			MovimentacaoTipo movimentacaoTipo) {
+		super();
 		this.dataHora = dataHora;
 		this.descricao = descricao;
 		this.valor = valor;
+		this.idConta = idConta;
 		this.movimentacaoTipo = movimentacaoTipo;
 	}
 
@@ -69,6 +75,14 @@ public class Movimentacao {
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public Integer getIdConta() {
+		return idConta;
+	}
+
+	public void setIdConta(Integer idConta) {
+		this.idConta = idConta;
 	}
 
 	@Override
